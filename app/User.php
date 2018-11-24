@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * FaceBook Provider relation.
+     *
+     * @relation function
+     */
+    public function facebookprovider()
+    {
+        return $this->hasMany('App\FaceBookProvider','id');
+    }
 }

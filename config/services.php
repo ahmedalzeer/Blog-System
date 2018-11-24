@@ -39,5 +39,9 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
-
+    'facebook' => [
+        'client_id' => '2154539054564444',         // Your GitHub Client ID
+        'client_secret' => env('a6f79570f89f6e16abd2d23a3501b32b'), // Your GitHub Client Secret
+        'redirect' => 'http://localhost:8000/auth/facebook/callback',
+    ],
 ];
