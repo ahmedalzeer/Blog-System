@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -35,5 +36,36 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        return $user->getEmail();
+    }
+    /**
+     * make user can login by national id or email.
+     *
+     * @return void
+     */
+    protected function credentials(Request $request)
+    {
+        if(is_numeric($request->input('email'))){
+            return ['national_id'=>$request->input('email'),'password'=>$request->input('password')];
+        }
+        elseif (filter_var($request->input('email'), FILTER_VALIDATE_EMAIL)) {
+            return ['email' => $request->input('email'), 'password'=>$request->input('password')];
+        }
+
     }
 }
