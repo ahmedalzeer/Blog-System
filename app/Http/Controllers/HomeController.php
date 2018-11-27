@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->gender == null)
+        {
+            $home = 'home';
+        }else{
+            $home = 'posts.post';
+        }
+        return view($home);
     }
 }
