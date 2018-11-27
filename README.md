@@ -11,11 +11,11 @@ used packages <br/>
 <br/>
 *********************************************About Blog****************************** <br/>
 <br/>
-=>using National ID and Email in login
-=>using facebook authentiction to log in but if you test locally you should work on https
-=>use blade to add post but at delete, update, display posts or comment use vue js 
-=>display posts according to gender of auth user 
-=>at the end if anyone have any advice about this web app please add it   
-
-***********************
+=>using National ID and Email in login <br/>
+=>using facebook authentiction to log in but if you test locally you should work on https <br/>
+=>use blade to add post but at delete, update, display posts or comment use vue js <br/>
+=>display posts according to gender of auth user <br/>
+=>at the end if anyone have any advice about this web app please add it <br/>   
+<br/><br/>
+***********************<br/>
 thanks 
